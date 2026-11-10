@@ -1,0 +1,6 @@
+# Inserts the in-session page find bar: the Host row is inert, the Client half
+# renders the find bar in the frame-wide `shell.overlay` seat and registers the
+# open command through the shortcuts service.
+- insert:
+    - id: dsh-session-page-search
+      name: 'dsh-session-page-search'

@@ -1,0 +1,53 @@
+{
+  "name": "dsh-session-page-search",
+  "version": "1.0.0",
+  "private": true,
+  "license": "MIT",
+  "description": "Session page search for DeepSeek Harness: a floating find bar, live match highlighting, and previous/next navigation. · 会话内页面搜索：浮动查找栏、实时匹配高亮与上下跳转。",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/waddlechef/dsh-session-page-search.git"
+  },
+  "homepage": "https://github.com/waddlechef/dsh-session-page-search#readme",
+  "bugs": {
+    "url": "https://github.com/waddlechef/dsh-session-page-search/issues"
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "plugin",
+    "find",
+    "search",
+    "page-search"
+  ],
+  "type": "module",
+  "icon": "icon.svg",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-shortcuts"
+      ]
+    }
+  }
+}

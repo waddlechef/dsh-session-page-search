@@ -1,0 +1,23 @@
+# dependencies
+node_modules/
+
+# logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# packaging / local builds
+*.tgz
+dist/
+lib/
+
+# editor / OS noise
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# local environment
+.env
+.env.*
+*.local

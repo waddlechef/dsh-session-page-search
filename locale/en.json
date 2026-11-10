@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Session page search",
+    "description": "A floating find bar over the current page, with live match highlighting and previous/next navigation."
+  }
+}

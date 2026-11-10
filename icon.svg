@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Session page search">
+  <defs>
+    <linearGradient id="dsh-sps-bubble" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#5b94ff"/>
+      <stop offset="1" stop-color="#2f6fe4"/>
+    </linearGradient>
+  </defs>
+  <rect x="3" y="3" width="58" height="58" rx="14" fill="#eaf1ff"/>
+  <path d="M14 24a7 7 0 0 1 7-7h22a7 7 0 0 1 7 7v11a7 7 0 0 1-7 7H30l-9 8v-8h-0.5A7 7 0 0 1 14 35z" fill="url(#dsh-sps-bubble)"/>
+  <path d="M22 25h20M22 31h13" stroke="#ffffff" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <circle cx="41.5" cy="41.5" r="8.5" fill="#ffffff" stroke="#223a6e" stroke-width="3"/>
+  <path d="M47.8 47.8 53 53" stroke="#223a6e" stroke-width="3.6" stroke-linecap="round" fill="none"/>
+</svg>

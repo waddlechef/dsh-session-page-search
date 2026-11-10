@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="120" viewBox="0 0 760 120" role="img" aria-label="dsh-session-page-search find bar preview">
+  <defs>
+    <filter id="barShadow" x="-10%" y="-40%" width="120%" height="200%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000000" flood-opacity="0.16"/>
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#000000" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif">
+    <!-- floating find bar -->
+    <rect x="30" y="36" width="700" height="48" rx="12" fill="#fbfbfb" fill-opacity="0.97" stroke="#00000018" stroke-width="1" filter="url(#barShadow)"/>
+
+    <!-- magnifier -->
+    <g transform="translate(46,50)" fill="none" stroke="#8b9096" stroke-width="1.6" stroke-linecap="round">
+      <circle cx="7" cy="7" r="4.6"/>
+      <path d="M10.4 10.4l3.4 3.4"/>
+    </g>
+
+    <!-- input placeholder -->
+    <text x="74" y="64" font-size="13" fill="#9aa0a6">在当前页面中查找</text>
+
+    <!-- counter -->
+    <text x="552" y="64" font-size="12" fill="#6b7076" text-anchor="end">1/6</text>
+
+    <!-- divider -->
+    <line x1="566" y1="50" x2="566" y2="70" stroke="#0000001f" stroke-width="1"/>
+
+    <!-- Aa -->
+    <text x="583" y="64" font-size="12" font-weight="600" fill="#6b7076" text-anchor="middle">Aa</text>
+
+    <!-- ab (whole word) -->
+    <text x="613" y="63" font-size="12" font-weight="600" fill="#6b7076" text-anchor="middle">ab</text>
+    <line x1="606" y1="67" x2="620" y2="67" stroke="#6b7076" stroke-width="1"/>
+
+    <!-- previous -->
+    <g transform="translate(632,56)" fill="none" stroke="#6b7076" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 9l5-5 5 5"/>
+    </g>
+
+    <!-- next -->
+    <g transform="translate(662,58)" fill="none" stroke="#6b7076" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 5l5 5 5-5"/>
+    </g>
+
+    <!-- close -->
+    <g transform="translate(692,56)" fill="none" stroke="#6b7076" stroke-width="1.6" stroke-linecap="round">
+      <path d="M3 3l8 8M11 3l-8 8"/>
+    </g>
+  </g>
+</svg>
