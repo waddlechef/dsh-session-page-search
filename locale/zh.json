@@ -1,6 +1,6 @@
 {
   "meta": {
     "title": "会话搜索",
-    "description": "在当前页面上浮动查找，实时高亮全部匹配并在匹配项之间跳转。"
+    "description": "DeepSeek Harness 的会话搜索：浮动查找栏、实时匹配高亮和上下跳转。"
   }
 }

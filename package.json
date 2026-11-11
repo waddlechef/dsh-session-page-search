@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "license": "MIT",
-  "description": "Session page search for DeepSeek Harness: a floating find bar, live match highlighting, and previous/next navigation. · 会话搜索：浮动查找栏、实时匹配高亮与上下跳转。",
+  "description": "Session page search for DeepSeek Harness: a floating find bar, live match highlighting, and previous/next navigation. · DeepSeek Harness 的会话搜索：浮动查找栏、实时匹配高亮和上下跳转。",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/waddlechef/dsh-session-page-search.git"
