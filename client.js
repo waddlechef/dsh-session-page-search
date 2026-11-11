@@ -849,7 +849,7 @@ window.__ModuleLoader__.load({
             }
             left = Math.min(viewportWidth - half - 12, Math.max(half + 12, left))
             var top = 12
-            if (rect && rect.top > 0) top = rect.top + 10
+            if (rect && rect.top > 0) top = rect.top + 30
             setPlacement(function (previous) {
               if (previous !== null && Math.abs(previous.left - left) < 0.5 && Math.abs(previous.top - top) < 0.5) return previous
               return { left: left, top: top }
