@@ -1,70 +1,58 @@
-一个 DeepSeek Harness 的会话内页面查找插件：在当前页面查找文字，统计命中数量，高亮全部匹配并在匹配项之间跳转，不修改页面 DOM。
+一个 DeepSeek Harness 的会话内页面查找插件：在当前页面查找文字，实时统计命中数量，高亮全部匹配并在匹配项之间跳转，不修改页面 DOM。查找栏浮在会话正文上方，随窗口与侧栏调整，边框与阴影和输入框一致。
 
 ![查找栏预览](docs/preview.svg)
 
 ## 功能
 
-- 打开：桌面应用 `Ctrl+F` / `Cmd+F`，或点编辑器工具行的放大镜按钮。
-- 查找：即输即搜，显示 `当前/总数`，无匹配显示「无结果」。
-- 跳转：`Enter` / `↓` 下一个，`Shift+Enter` / `↑` 上一个，首尾循环。
-- 匹配：`Aa` 区分大小写，`ab` 全词匹配，两个开关都记住选择。
-- 关闭：`Esc` 或关闭按钮，焦点离开查找栏后 `Esc` 仍有效。
-- 复位：关闭时恢复打开查找栏前的滚动位置。
-- 刷新：流式输出、展开工具卡、切换会话时自动重扫。
-- 定位：居中于会话正文上方，随窗口、侧栏和右侧面板调整。
-- 配色：主题色高亮，跟随亮/暗主题。
-
-## 快捷键
-
-| 操作 | 快捷键 |
-| --- | --- |
-| 打开 / 聚焦（桌面应用） | `Ctrl+F` / `Cmd+F` |
-| 下一个 / 上一个 | `Enter` / `Shift+Enter`，或 `↓` / `↑` |
-| 关闭 | `Esc` |
-
-也可以在 设置 → 通用 → 键盘快捷键 中把「在当前页面中查找」改绑到其他按键。
+- 按 Ctrl+F（macOS 为 Cmd+F）打开查找栏，也可以点编辑器工具行的放大镜按钮。
+- 输入即搜，显示当前命中数和总数，没有匹配时显示「无结果」。
+- 按 Enter 或 ↓ 跳到下一个匹配，按 Shift+Enter 或 ↑ 跳到上一个，首尾循环。
+- 支持区分大小写和全词匹配，两个开关都记住上次选择。
+- 按 Esc 或关闭按钮收起查找栏，焦点离开查找栏后 Esc 仍然有效。
+- 关闭时把搜索期间滚动过的内容恢复到打开查找栏时的位置。
+- 页面流式输出、展开工具卡、切换会话时自动重扫，计数与高亮保持最新。
+- 查找栏居中在会话正文上方，随窗口、侧栏和右侧面板调整。
+- 高亮使用主题色，跟随亮/暗主题。
 
 ## 安装
 
-纯 JavaScript 编写，无第三方依赖，无构建步骤。要求 DSH 0.2 以上，开发与验证版本 0.2.2-rc.1。
+插件是纯 JavaScript 编写、无第三方依赖、无构建步骤，要求 DSH 0.2 以上（开发与验证版本 0.2.2-rc.1）。
 
-- 桌面端：设置 → 插件，填入 `github:waddlechef/dsh-session-page-search`。安装后通常立即生效，未生效则重启 DSH。
-- 网页端：`dsh plugin --profile <profile> add github:waddlechef/dsh-session-page-search`
+### 桌面端
+
+打开 设置 → 插件，填入地址 `github:waddlechef/dsh-session-page-search`。
+
+安装后通常立即生效，未生效则重启 DSH。
+
+### 网页端
+
+执行以下命令。
+
+```bash
+dsh plugin --profile <profile> add github:waddlechef/dsh-session-page-search
+```
 
 ## 卸载
 
-- 桌面端：设置 → 插件 中移除。
-- 网页端：`dsh plugin --profile <profile> remove dsh-session-page-search`
+### 桌面端
+
+在 设置 → 插件 里移除。
+
+### 网页端
+
+执行以下命令。
+
+```bash
+dsh plugin --profile <profile> remove dsh-session-page-search
+```
 
 ## 使用
 
-查找范围是当前页面**已渲染**的内容，包含会话正文、工具输出、侧栏和弹窗。隐藏元素和折叠未渲染的内容不在范围内，展开后才会被搜到。单次扫描最多 2000 条匹配，达到上限时计数显示 `+`。
+安装后无需任何额外配置。在桌面应用中按 Ctrl+F 打开查找栏，直接输入要查找的文字。查找栏会自动聚焦输入框并全选上次的查询词，继续输入即可替换。按 Enter 或 ↓ 跳到下一个匹配，按 Shift+Enter 或 ↑ 跳到上一个。
 
-## 实现说明
-
-- 挂载：`shell.overlay` 插槽，样式使用主题 token，边框与阴影沿用输入框卡（`--dsw-elevation-soft` + `--dsw-alias-border-l2`）。
-- 高亮：CSS Custom Highlight API，不包裹、不修改 DOM。不支持该 API 时仍可计数和跳转。
-- 刷新：`MutationObserver` 增量重扫，忽略查找栏自身的 DOM 变动。
-- 快捷键：宿主 shortcuts 服务注册，另加捕获阶段 `Ctrl/Cmd+F` 兜底。
-
-## 目录结构
-
-| 文件 | 作用 |
-| --- | --- |
-| `client.js` | 查找栏、搜索高亮、滚动恢复、触发按钮、命令注册 |
-| `index.js` | 惰性 Host 半边 |
-| `cordis.patch.yml` | Loader 行 |
-| `locale/*.json` | 管理器标题与描述 |
-| `icon.svg` | 插件图标 |
-| `docs/preview.svg` | 预览图 |
-
-## 开发
-
-纯 JavaScript，无构建步骤。改 `client.js` 后 Client 半边经 HMR 自动重载，无需重启。
-
-```bash
-node --check client.js
-```
+- 查找范围是当前页面已渲染的内容，会话正文、工具输出、侧栏和弹窗都会搜索。隐藏元素和折叠未渲染的内容不在范围内，需要先展开。
+- 单次扫描最多 2000 条匹配，达到上限时计数后面显示 +。
+- 可以在 设置 → 通用 → 键盘快捷键 里把「在当前页面中查找」改绑到其他按键。
 
 ## License
 
