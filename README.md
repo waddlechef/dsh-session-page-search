@@ -71,7 +71,7 @@ dsh plugin --profile <profile> remove dsh-session-page-search
 
 ## 实现说明
 
-- 通过 `shell.overlay` 插槽挂载浮动查找栏，样式使用宿主主题 token，跟随亮/暗主题。
+- 通过 `shell.overlay` 插槽挂载浮动查找栏，样式使用宿主主题 token，边框与阴影沿用输入框卡的 `--dsw-elevation-soft` 与 `--dsw-alias-border-l2` 描边，跟随亮/暗主题。
 - 高亮使用 CSS Custom Highlight API（`CSS.highlights` + `::highlight()`），不包裹、不修改页面 DOM，不影响 React 渲染。不支持该 API 时仍可计数和跳转，只是不绘制高亮。
 - 页面变化通过 `MutationObserver` 增量重扫，查找栏自身的 DOM 变动会被忽略。
 - 打开查找栏时对会话滚动容器做一次位置快照，关闭时恢复。

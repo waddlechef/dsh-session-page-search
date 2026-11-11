@@ -83,10 +83,9 @@ window.__ModuleLoader__.load({
     }
 
     var CSS_TEXT = [
-      '.dsh-sps-bar{position:fixed;left:50%;top:var(--dsh-frame-overlay-top,12px);transform:translateX(-50%);z-index:60;display:flex;align-items:center;gap:2px;box-sizing:border-box;max-width:min(560px,calc(100vw - 32px));padding:6px 8px 6px 12px;border:1px solid var(--dsw-alias-border-l1);border-radius:12px;background:var(--dsw-specific-menu,rgba(251,251,251,.95));-webkit-backdrop-filter:var(--dsw-menu-backdrop-filter,blur(18px));backdrop-filter:var(--dsw-menu-backdrop-filter,blur(18px));color:var(--dsw-alias-label-primary);box-shadow:0 14px 36px rgba(0,0,0,.16),0 2px 8px rgba(0,0,0,.08);font-family:inherit;font-size:13px;line-height:1.2;pointer-events:auto;animation:dsh-sps-in .16s cubic-bezier(.2,.8,.2,1);}',
+      '.dsh-sps-bar{position:fixed;left:50%;top:var(--dsh-frame-overlay-top,12px);transform:translateX(-50%);z-index:60;display:flex;align-items:center;gap:2px;box-sizing:border-box;max-width:min(560px,calc(100vw - 32px));padding:6px 8px 6px 12px;border:0;border-radius:12px;--dsw-elevation-stroke-color:var(--dsw-alias-border-l2);background:var(--dsw-specific-menu,rgba(251,251,251,.95));-webkit-backdrop-filter:var(--dsw-menu-backdrop-filter,blur(18px));backdrop-filter:var(--dsw-menu-backdrop-filter,blur(18px));color:var(--dsw-alias-label-primary);box-shadow:var(--dsw-elevation-soft);font-family:inherit;font-size:13px;line-height:1.2;pointer-events:auto;animation:dsh-sps-in .16s cubic-bezier(.2,.8,.2,1);}',
       '@keyframes dsh-sps-in{from{opacity:0;transform:translate(-50%,-6px)}to{opacity:1;transform:translate(-50%,0)}}',
       '@media (prefers-reduced-motion:reduce){.dsh-sps-bar{animation:none}}',
-      '.dsh-sps-bar:focus-within{border-color:var(--dsw-alias-border-l2);}',
       '.dsh-sps-icon{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;margin-right:6px;color:var(--dsw-alias-label-tertiary);}',
       '.dsh-sps-input{flex:1 1 auto;width:224px;min-width:120px;padding:4px 2px;border:0;outline:0;background:transparent;color:var(--dsw-alias-label-primary);font:inherit;font-size:13px;caret-color:var(--dsw-alias-state-business-primary);}',
       '.dsh-sps-input::placeholder{color:var(--dsw-alias-label-tertiary);}',
