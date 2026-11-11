@@ -44,6 +44,7 @@ window.__ModuleLoader__.load({
       en: {
         placeholder: 'Find in page',
         command: 'Find in page',
+        trigger: 'Search',
         previous: 'Previous match',
         next: 'Next match',
         close: 'Close find bar',
@@ -54,6 +55,7 @@ window.__ModuleLoader__.load({
       zh: {
         placeholder: '在当前页面中查找',
         command: '在当前页面中查找',
+        trigger: '搜索',
         previous: '上一个匹配',
         next: '下一个匹配',
         close: '关闭查找栏',
@@ -100,7 +102,7 @@ window.__ModuleLoader__.load({
       '.dsh-sps-aa{font-size:12px;font-weight:600;}',
       '.dsh-sps-aa[data-active="true"]{background:var(--dsw-alias-button-ghost-active-fill);color:var(--dsw-alias-label-primary);}',
       '.dsh-sps-word{text-decoration:underline;text-underline-offset:2px;}',
-      '.dsh-sps-trigger{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;width:26px;height:26px;padding:0;border:0;border-radius:var(--dsw-radius-sm,5px);background:transparent;color:var(--dsw-alias-label-secondary);cursor:pointer;font:inherit;transition:background-color .12s ease,color .12s ease;}',
+      '.dsh-sps-trigger{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;min-width:26px;height:26px;padding:0 8px;border:0;border-radius:var(--dsw-radius-sm,5px);background:transparent;color:var(--dsw-alias-label-secondary);cursor:pointer;font:inherit;font-size:12px;line-height:1;transition:background-color .12s ease,color .12s ease;}',
       '.dsh-sps-trigger:hover{background:var(--dsw-alias-interactive-bg-hover,var(--dsw-alias-interactive-bg-hover-solid));color:var(--dsw-alias-label-primary);}',
       '.dsh-sps-trigger:focus-visible{outline:2px solid var(--dsw-alias-state-business-primary);outline-offset:1px;}',
       '@media (max-width:640px){.dsh-sps-bar{max-width:calc(100vw - 20px);padding-right:6px;}.dsh-sps-input{width:150px;min-width:80px;}.dsh-sps-count{min-width:38px;padding:0 4px;}.dsh-sps-divider{margin:0 4px;}}',
@@ -1056,8 +1058,8 @@ window.__ModuleLoader__.load({
     }
 
     /**
-     * The composer-toolbar affordance: a small magnifier that opens the bar,
-     * so the feature is discoverable without knowing the shortcut.
+     * The composer-toolbar affordance: a labeled Search button that opens the
+     * bar, so the feature is discoverable without knowing the shortcut.
      */
     function createSearchTrigger(ctx, controller, translator) {
       return function SearchTrigger() {
@@ -1072,19 +1074,18 @@ window.__ModuleLoader__.load({
           }
         }, [])
 
-        var label = translator.t('command')
         return h(
           'button',
           {
             type: 'button',
             className: 'dsh-sps-trigger',
-            title: label,
-            'aria-label': label,
+            title: translator.t('command'),
+            'aria-label': translator.t('trigger'),
             onClick: function () {
               controller.open()
             },
           },
-          searchGlyph(16),
+          translator.t('trigger'),
         )
       }
     }
