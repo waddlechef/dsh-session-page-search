@@ -1099,15 +1099,14 @@ window.__ModuleLoader__.load({
           },
           aliases: ['find', 'search', 'page', 'session'],
           defaults: {
-            // Desktop app: the familiar browser gesture. A browser tab keeps
-            // its native find-in-page on Ctrl/Cmd+F, so the Web shell gets
-            // Ctrl/Cmd+Alt+F instead (desktop-profile defaults are what the
-            // receiving device uses).
+            // Desktop app only: the familiar browser gesture. In a browser tab
+            // the browser keeps Ctrl/Cmd+F for its native find, so the Web
+            // shell gets no extra binding (a Ctrl/Cmd+Alt+F default would also
+            // collide with Session fork on Desktop) — the composer magnifier
+            // button opens the bar there.
             'desktop:macos': { code: 'KeyF', modifiers: ['primary'] },
             'desktop:windows': { code: 'KeyF', modifiers: ['primary'] },
             'desktop:linux': { code: 'KeyF', modifiers: ['primary'] },
-            'web:macos': { code: 'KeyF', modifiers: ['primary', 'alt'] },
-            'web:windows': { code: 'KeyF', modifiers: ['primary', 'alt'] },
           },
           regions: ['page', 'editable', 'terminal'],
           modals: [],
